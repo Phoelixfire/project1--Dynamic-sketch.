@@ -1,8 +1,6 @@
 
 float horizon;
-
 float sunX=0, sunY=50;
-float xGold, yGold;  // position of the gold nugget
 
 
 void setup()
@@ -42,7 +40,7 @@ void draw()
   line(220, 265, 220, 285);  //bottom window lines
   line(210, 275, 230, 275);  //bottom window lines
   
-  
+  noStroke();
   fill( 255, 255, 0 );   
   ellipse( sunX, sunY, 40, 40 );   //sun 
  
