@@ -1,51 +1,73 @@
-float sunX, sunY;
+
 float horizon;
-float x, y;
-float xAL, yAL;     //position of AL
+
+float sunX=0, sunY=50;
 float xGold, yGold;  // position of the gold nugget
 
 
 void setup()
 {
-   size(500, 600);
-   horizon= height/2;
-  
+  size(500, 600);
+  horizon= height/2;
 }
 
-void reset()
-{
-  sunX= 1;
-  sunY=75;
-}
 
 
 void draw()
 {
+  noStroke();
   background (#06bbdb);   //background
-  fill( 255,255,0 );   
-  ellipse( 50, 50, 40,40 );   //sun
   fill (#009900);
-  rect( 0,horizon, width, height/2);    //grass
+  rect( 0, horizon, width, height/2);    //grass
   fill (#db0606);
-  rect (200,225,75,75);   //house
+  rect (200, 225, 75, 75);   //house
   fill (#86592d);
-  triangle(180,245, 240,185, 295, 245);   //roof
-        fill(#50431F);
-  triangle( 142,horizon, 128,horizon, 135,horizon-50 );  //trunk
- fill( 100,200,100 );
-   ellipse( 135, 255, 40, 40); //leaves
+  triangle(180, 245, 240, 185, 295, 245);   //roof
+  fill(#7b6d56);
+  rect(240,265, 20,35);  //door
+  fill(#f2fa00);
+  ellipse(240, 225, 25, 25); //top window
+  rect( 210, 265, 20,20); //bottom window
+
+  fill(#50431F);
+  triangle( 142, horizon, 128, horizon, 135, horizon-50 );  //trunk
+  fill( 100, 200, 100 );
+  ellipse( 135, 255, 40, 40); //leaves
+
+ 
+  fill(#000000);
+  stroke(1);  //stroke for lines
+  line(240,212.5, 240,237.5); //top window lines
+  line(227.5, 225, 252.5, 225);  //top window lines
+  line(220, 265, 220, 285);  //bottom window lines
+  line(210, 275, 230, 275);  //bottom window lines
   
+  
+  fill( 255, 255, 0 );   
+  ellipse( sunX, sunY, 40, 40 );   //sun 
+ 
+ if (sunX >width) {
+   sunX= 0;
+ }  
+  sunX = sunX+1;
+  
+ 
+  
+  noStroke();
   fill(#e6ccb3);  
-  rect(355,260,10,25); //head
+  rect(mouseX+5, mouseY-10, 10, 10); //head
   fill(#420300);
-  rect(350,270,20,20); //torso
-  fill(#000000);
-  line(355,290,355,300);  //left leg
-  fill(#000000);
-  line(365,290,365,300);  //right leg
-  line(350,270,340,275);  //left arm
-  line(370,270,380,275);   //right arm
+  rect(mouseX, mouseY, 20, 20); //torso
+   stroke(1);  //stroke for lines
   
-    fill(#999999);   
-  text( "AL", 352,280 );
+  fill(#000000);
+  line(mouseX+3, mouseY+19, mouseX+3, mouseY+30);  //left leg
+  line(mouseX+17, mouseY+19, mouseX+17, mouseY+30);  //right leg
+  line(mouseX, mouseY, mouseX-10, mouseY+5);  //left arm
+  line(mouseX+20, mouseY, mouseX+30, mouseY+5);   //right arm
+
+  fill(#999999);   
+  text( "AL", mouseX+5, mouseY+10 );
+  noStroke();
+
 }
