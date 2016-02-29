@@ -4,7 +4,7 @@ float sunX=0, sunY=50;
 
 void setup()
 {
-  size(500, 600);
+  size(500, 400);
   horizon= height/2;
 }
 
@@ -24,10 +24,11 @@ void scene() {
   noStroke();
   background (#06bbdb);   //background
   fill (#009900);
-  rect( 0, horizon, width, height/2);    //grass
-  fill (#db0606);
-}
+  rect( 0, horizon+100, width, height/2);    //grass
+  }
+  
 void house() { 
+  fill (#db0606);
   rect (200, 225, 75, 75);   //house
   fill (#86592d);
   triangle(180, 245, 240, 185, 295, 245);   //roof
@@ -46,7 +47,7 @@ void house() {
 
 void tree() {
   fill(#50431F);
-  triangle( 142, horizon, 128, horizon, 135, horizon-50 );  //trunk
+  triangle( 142, horizon+100, 128, horizon+100, 135, horizon+50 );  //trunk
   fill( 100, 200, 100 );
   ellipse( 135, 255, 40, 40); //leaves
 }
