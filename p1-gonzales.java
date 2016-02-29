@@ -17,7 +17,10 @@ void draw()
  house();
  sun();
  creature();
+ clouds();
  name();
+ 
+
 }
 
 void scene() {
@@ -52,6 +55,24 @@ void tree() {
   ellipse( 135, 255, 40, 40); //leaves
 }
  
+ 
+void clouds() {
+  noStroke(); // white
+  fill(#FFFFFF);
+  ellipse(100,100,40,40);  //left cloud
+  ellipse(115,120,40,40);
+  ellipse(90,115,40,40);
+  ellipse(135,100,40,40);
+  ellipse(145,115,40,40);
+
+
+  ellipse(390,80,40,40);   //right cloud
+  ellipse(370,100,40,40);
+  ellipse(360,90,40,40);
+  ellipse(400,100,40,40);
+  ellipse(420,85,40,40);
+
+}
 
 void sun() {  
   noStroke();
@@ -65,6 +86,7 @@ void sun() {
   
 }
 void creature() {
+  
   noStroke();
   fill(#e6ccb3);  
   rect(mouseX+5, mouseY-10, 10, 10); //head
