@@ -75,20 +75,20 @@ void clouds() {
   ellipse(cloud1-10,115,40,40);
   ellipse(cloud1+35,100,40,40);
   ellipse(cloud1+45,115,40,40);
-if(cloud1 > width) {
+if(cloud1 > width+40) {
   cloud1 = 0;
 }
-  cloud1= cloud1 + 1.5;
+  cloud1= cloud1 + .5;
 
   ellipse(cloud2-10,80,40,40);   //cloud moving left
   ellipse(cloud2-30,100,40,40);
   ellipse(cloud2-40,90,40,40);
   ellipse(cloud2,100,40,40);
   ellipse(cloud2+20,85,40,40);
-if(cloud2 > width) {
+if(cloud2 > width+45) {
   cloud2 = 0;
 }
-  cloud2= cloud2 + 1.48;
+  cloud2= cloud2 + .48;
 
 }
 
@@ -97,7 +97,7 @@ void sun() {
   fill( 255, 255, 0 );   
   ellipse( sunX, sunY, 40, 40 );   //sun 
  
- if (sunX >width) {
+ if (sunX >width+10) {
    sunX= 0;
  }  
   sunX = sunX+1;
@@ -105,15 +105,15 @@ void sun() {
 }
 
 void balloon() {  //ballon
+ stroke(0);
+ line(balloon1-19,40,balloon1-10,70);
+ line(balloon1+19,40,balloon1+10,70);
+ noStroke();
  fill(#940020);
  ellipse(balloon1,40,40,40);
- stroke(0);
- line(balloon1-20,40,balloon1-10,70);
- line(balloon1+20,40,balloon1+10,70);
- noStroke();
  fill(#564202);
  rect(balloon1-10,70,20,20);
- if(balloon1 < width) {
+ if(balloon1 < -width) {
   balloon1 = 500;
 }
   balloon1= balloon1 - 1.5;
