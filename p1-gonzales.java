@@ -1,5 +1,6 @@
 float horizon;
 float sunX=0, sunY=50;
+float goldX, goldY;
 
 
 void setup()
@@ -19,7 +20,7 @@ void draw()
  creature();
  clouds();
  name();
- 
+ gold();
 
 }
 
@@ -105,4 +106,17 @@ void name() {
   fill(#999999);   
   text( "AL", mouseX+5, mouseY+10 );
   noStroke();
+}
+
+void gold() {
+ 
+  fill(#FCBD35);
+  ellipse(goldX,goldY, 30,30);
+ goldX= random(0,500);
+ goldY= random(0,400);
+
+ 
+ if (goldX,goldY,mouseX,mouseY) < 50;
+ 
+  
 }
