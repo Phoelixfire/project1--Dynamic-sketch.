@@ -2,6 +2,8 @@ float horizon;
 float sunX=0, sunY=50;
 float alX, alY;
 float goldX= random(0,500), goldY= random(0,400);
+int score=0;
+
 
 void setup()
 {
@@ -20,7 +22,10 @@ void draw()
  clouds();
  name();
  gold();
-
+ points();
+ goal();
+ win();
+ instructions();
  
 
 }
@@ -103,27 +108,60 @@ void creature() {
   line(alX+20, alY, alX+30, alY+5);   //right arm
 }
 
-void name() {
+void name() {  //name of creature
   fill(#999999);   
+  textSize(10);
   text( "AL", alX+5, alY+10 );
   noStroke();
 }
 
+void instructions () {  //display of instructions
+  fill(#FFFFFF);
+  textSize(15);
+  text("Chase the gold to earn 100 points",10,15);
+  text("Press r to reset game",10,30);
+  text("Press q to quit",10, 45);
+}
+
 void gold() {
  
-  fill(#FCBD35);
-  ellipse(goldX,goldY, 30,16);
+  fill(#FCBD35);  
+  ellipse(goldX,goldY, 30,16);  //gold
+}
 
-
-if ( dist(alX,alY,goldX,goldY) < 20 ){
+void goal() {  
+if ( dist(alX,alY,goldX,goldY) < 20 ){  //gold reset
  goldX=random(0,500);
  goldY=random(0,400);
+ score = score + 100;  //score +
 
 }
 }
+
+void win() {   //end screen
+   textSize(50);
+if (score > 1100) {
+  text ("You did it!", 120, 180);
+score = 1200 ;
+}
+ 
+}
+
+void points() {  //score display
+  fill (#FFFFFF);
+  textSize(20);
+    if (score != 0) {
+    text( "Score:  "+score, 350, 50 );
+}
+}
+
+
 
 void keyPressed() {
-  if (key== 'q' )
-  {exit();
+  if (key== 'q' ) {  //quit game
+  exit();
+}
+  if (key== 'r') {  //game reset
+   score=0;
 }
 }
