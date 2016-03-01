@@ -3,7 +3,8 @@ float sunX=0, sunY=50;
 float alX, alY;
 float goldX= random(0,500), goldY= random(0,400);
 int score=0;
-
+float cloud1=100;
+float cloud2=400;
 
 void setup()
 {
@@ -66,18 +67,25 @@ void tree() {
 void clouds() {
   noStroke(); // white
   fill(#FFFFFF);
-  ellipse(100,100,40,40);  //left cloud
-  ellipse(115,120,40,40);
-  ellipse(90,115,40,40);
-  ellipse(135,100,40,40);
-  ellipse(145,115,40,40);
+  ellipse(cloud1,100,40,40);  //cloud moving right
+  ellipse(cloud1+15,120,40,40);
+  ellipse(cloud1-10,115,40,40);
+  ellipse(cloud1+35,100,40,40);
+  ellipse(cloud1+45,115,40,40);
+if(cloud1 > width) {
+  cloud1 = 0;
+}
+  cloud1= cloud1 + 1.5;
 
-
-  ellipse(390,80,40,40);   //right cloud
-  ellipse(370,100,40,40);
-  ellipse(360,90,40,40);
-  ellipse(400,100,40,40);
-  ellipse(420,85,40,40);
+  ellipse(cloud2-10,80,40,40);   //cloud moving left
+  ellipse(cloud2-30,100,40,40);
+  ellipse(cloud2-40,90,40,40);
+  ellipse(cloud2,100,40,40);
+  ellipse(cloud2+20,85,40,40);
+if(cloud2 < width) {
+  cloud2 = 500;
+}
+  cloud2= cloud2 - 1;
 
 }
 
