@@ -1,14 +1,13 @@
 float horizon;
 float sunX=0, sunY=50;
-float goldX, goldY;
-
+float alX, alY;
+float goldX= random(0,500), goldY= random(0,400);
 
 void setup()
 {
   size(500, 400);
   horizon= height/2;
-}
-
+  }
 
 
 void draw()
@@ -21,6 +20,8 @@ void draw()
  clouds();
  name();
  gold();
+
+ 
 
 }
 
@@ -87,36 +88,42 @@ void sun() {
   
 }
 void creature() {
-  
+  alX= mouseX;
+  alY= mouseY;
   noStroke();
   fill(#e6ccb3);  
-  rect(mouseX+5, mouseY-10, 10, 10); //head
+  rect(alX+5, alY-10, 10, 10); //head
   fill(#420300);
-  rect(mouseX, mouseY, 20, 20); //torso
-   stroke(1);  //stroke for lines
-  
+  rect(alX, alY, 20, 20); //torso
+  stroke(1);  //stroke for lines
   fill(#000000);
-  line(mouseX+3, mouseY+19, mouseX+3, mouseY+30);  //left leg
-  line(mouseX+17, mouseY+19, mouseX+17, mouseY+30);  //right leg
-  line(mouseX, mouseY, mouseX-10, mouseY+5);  //left arm
-  line(mouseX+20, mouseY, mouseX+30, mouseY+5);   //right arm
+  line(alX+3, alY+19, alX+3, alY+30);  //left leg
+  line(alX+17, alY+19, alX+17, alY+30);  //right leg
+  line(alX, alY, alX-10, alY+5);  //left arm
+  line(alX+20, alY, alX+30, alY+5);   //right arm
 }
 
 void name() {
   fill(#999999);   
-  text( "AL", mouseX+5, mouseY+10 );
+  text( "AL", alX+5, alY+10 );
   noStroke();
 }
 
 void gold() {
  
   fill(#FCBD35);
-  ellipse(goldX,goldY, 30,30);
- goldX= random(0,500);
- goldY= random(0,400);
+  ellipse(goldX,goldY, 30,16);
 
- 
- if (goldX,goldY,mouseX,mouseY) < 50;
- 
-  
+
+if ( dist(alX,alY,goldX,goldY) < 20 ){
+ goldX=random(0,500);
+ goldY=random(0,400);
+
+}
+}
+
+void keyPressed() {
+  if (key== 'q' )
+  {exit();
+}
 }
