@@ -82,10 +82,10 @@ if(cloud1 > width) {
   ellipse(cloud2-40,90,40,40);
   ellipse(cloud2,100,40,40);
   ellipse(cloud2+20,85,40,40);
-if(cloud2 < width) {
-  cloud2 = 500;
+if(cloud2 > width) {
+  cloud2 = 0;
 }
-  cloud2= cloud2 - 1;
+  cloud2= cloud2 + 1.48;
 
 }
 
