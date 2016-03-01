@@ -104,7 +104,7 @@ void sun() {
   
 }
 
-void balloon() {
+void balloon() {  //ballon
  fill(#940020);
  ellipse(balloon1,40,40,40);
  stroke(0);
