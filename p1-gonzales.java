@@ -5,6 +5,8 @@ float goldX= random(0,500), goldY= random(0,400);
 int score=0;
 float cloud1=100;
 float cloud2=400;
+float balloon1=50;
+
 
 void setup()
 {
@@ -26,6 +28,7 @@ void draw()
  points();
  goal();
  win();
+ balloon();
  instructions();
  
 
@@ -99,6 +102,22 @@ void sun() {
  }  
   sunX = sunX+1;
   
+}
+
+void balloon() {
+ fill(#940020);
+ ellipse(balloon1,40,40,40);
+ stroke(0);
+ line(balloon1-20,40,balloon1-10,70);
+ line(balloon1+20,40,balloon1+10,70);
+ noStroke();
+ fill(#564202);
+ rect(balloon1-10,70,20,20);
+ if(balloon1 < width) {
+  balloon1 = 500;
+}
+  balloon1= balloon1 - 1.5;
+ 
 }
 void creature() {
   alX= mouseX;
